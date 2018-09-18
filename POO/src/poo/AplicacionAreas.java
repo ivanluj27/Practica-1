@@ -10,7 +10,7 @@ package poo;
  * @author DELL
  */
 public class AplicacionAreas {
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         float a;
         float pi=3.1416f;
         float r=2;
@@ -18,4 +18,5 @@ public class AplicacionAreas {
         a=pi*(r*r);
         System.out.println("El area es "+a);
     }
-}
+} 
+
