@@ -6,6 +6,7 @@
 package proyecto;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 /**
@@ -16,7 +17,7 @@ public class Preguntitas extends javax.swing.JFrame {
         ArrayList <Pregunta> preguntas;
         ArrayList <Pregunta> opciones;
         ArrayList<JRadioButton> radios;
-        
+        int indicePregunta;
                 
         
     /**
@@ -39,7 +40,7 @@ public class Preguntitas extends javax.swing.JFrame {
         //ES LOGICA DE APLICACION,VAMOS A LLENAR LOS RADIOBUTTONS CON LAS OPCIONES DE LA PRIMER PREGUNTA 
        for(int i=0; i<radios.size();i++)
        {
-           radios.get(i).setText(preguntas.get(0).getOpciones().get(i).getTitulo());
+           radios.get(i).setText(preguntas.get(indicePregunta).getOpciones().get(i).getTitulo());
            
        }
     }
@@ -56,20 +57,27 @@ public class Preguntitas extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        etiquetaPreguntaTitulo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         radioOp1 = new javax.swing.JRadioButton();
         radioOp2 = new javax.swing.JRadioButton();
-        radioOp3 = new javax.swing.JRadioButton();
         radioOp4 = new javax.swing.JRadioButton();
-        checaRespuesta = new javax.swing.JButton();
         siguiente = new javax.swing.JButton();
+        etiquetaPreguntaTitulo = new javax.swing.JLabel();
+        checaRespuesta = new javax.swing.JButton();
+        radioOp3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        etiquetaPreguntaTitulo.setText("jLabel2");
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         buttonGroup1.add(radioOp1);
         radioOp1.setText("jRadioButton1");
+        radioOp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioOp1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(radioOp2);
         radioOp2.setText("jRadioButton2");
@@ -79,21 +87,11 @@ public class Preguntitas extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(radioOp3);
-        radioOp3.setText("jRadioButton3");
-
         buttonGroup1.add(radioOp4);
         radioOp4.setText("jRadioButton4");
         radioOp4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioOp4ActionPerformed(evt);
-            }
-        });
-
-        checaRespuesta.setText("Checar Respuesta ");
-        checaRespuesta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checaRespuestaActionPerformed(evt);
             }
         });
 
@@ -104,37 +102,44 @@ public class Preguntitas extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiquetaPreguntaTitulo)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        etiquetaPreguntaTitulo.setText("jLabel2");
+
+        checaRespuesta.setText("Checar Respuesta ");
+        checaRespuesta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checaRespuestaActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(radioOp3);
+        radioOp3.setText("jRadioButton3");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaPreguntaTitulo)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioOp4)
                             .addComponent(radioOp2)
                             .addComponent(radioOp1)
-                            .addComponent(radioOp3)
-                            .addComponent(radioOp4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                            .addComponent(radioOp3)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
                         .addComponent(checaRespuesta)
                         .addGap(68, 68, 68)
                         .addComponent(siguiente)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(etiquetaPreguntaTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(radioOp1)
@@ -145,10 +150,29 @@ public class Preguntitas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(radioOp4)
                 .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checaRespuesta)
                     .addComponent(siguiente))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -157,21 +181,60 @@ public class Preguntitas extends javax.swing.JFrame {
     private void checaRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checaRespuestaActionPerformed
      siguiente.setEnabled(true);
      checaRespuesta.setEnabled(false);
-        
+        int indiceSeleccionado = 0;
+        for (int i=0; i<radios.size(); i++)
+        {
+            if(radios.get(i).isSelected())
+            {
+              indiceSeleccionado = i;
+            break;  
+            }
+            
+        }
+        System.out.println("Indice sleccionado es: "+indiceSeleccionado);
+        JOptionPane.showMessageDialog(this, "Tu respuesta es: "+checar(preguntas.get(indicePregunta),indiceSeleccionado));
+        indicePregunta++;
 // TODO add your handling code here:
     }//GEN-LAST:event_checaRespuestaActionPerformed
-
+    
+    //aqui ponemos la respuesta en un jOpcionframe     
     private void radioOp4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioOp4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioOp4ActionPerformed
 
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
+    siguiente.setEnabled(false);
+     
+        preguntas = obtenerCuestionario();
+        etiquetaPreguntaTitulo.setText(preguntas.get(indicePregunta).getTitulo());
+        
+        //INICIALIZAMOS EL ARRAYLIST DE RADIOS 
+        radios = new  ArrayList<>();
+        radios.add(radioOp1);
+        radios.add(radioOp2);
+        radios.add(radioOp3);
+        radios.add(radioOp4);
+        //button desahibiltado
+       siguiente.setEnabled(false);
+        
+        //ES LOGICA DE APLICACION,VAMOS A LLENAR LOS RADIOBUTTONS CON LAS OPCIONES DE LA PRIMER PREGUNTA 
+       for(int i=0; i<radios.size();i++)
+       {
+           radios.get(i).setText(preguntas.get(indicePregunta).getOpciones().get(i).getTitulo());
+           
+       }
+       checaRespuesta.setEnabled(true);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_siguienteActionPerformed
 
     private void radioOp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioOp2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioOp2ActionPerformed
+
+    private void radioOp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioOp1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioOp1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,7 +263,7 @@ public class Preguntitas extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -215,6 +278,7 @@ public class Preguntitas extends javax.swing.JFrame {
     private javax.swing.JButton checaRespuesta;
     private javax.swing.JLabel etiquetaPreguntaTitulo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton radioOp1;
     private javax.swing.JRadioButton radioOp2;
     private javax.swing.JRadioButton radioOp3;
@@ -339,8 +403,8 @@ public class Preguntitas extends javax.swing.JFrame {
         
         Opcion op91 = new Opcion("Anaya", false);
         Opcion op92 = new Opcion("Margarita", false);
-        Opcion op93 = new Opcion("Bronco", true);
-        Opcion op94 = new Opcion("AMLO", false);
+        Opcion op93 = new Opcion("Bronco", false);
+        Opcion op94 = new Opcion("AMLO", true);
         ArrayList<Opcion> opciones9 = new ArrayList<>();
         opciones9.add(op91);
         opciones9.add(op92);
@@ -363,4 +427,14 @@ public class Preguntitas extends javax.swing.JFrame {
         preguntas.add(p10);
         return preguntas;
     }
+    boolean checar(Pregunta p, int indiceSeleccionado)
+    {
+        boolean correcta = false;
+        if(p.getOpciones().get(indiceSeleccionado).isCorrecta())
+        {
+            correcta=true;
+        }
+        return correcta;
+    }
 }
+

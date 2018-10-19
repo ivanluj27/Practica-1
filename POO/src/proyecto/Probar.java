@@ -14,7 +14,7 @@ import java.util.*;
 public class Probar {
 
     public static void main(String[] args) {
-
+        
         Opcion op1 = new Opcion("Ecaterror", false);
         Opcion op2 = new Opcion("Mizcalco", false);
         Opcion op3 = new Opcion("Kiev", true);
