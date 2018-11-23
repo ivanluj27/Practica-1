@@ -12,21 +12,21 @@ package tipos1;
 public class Arreglos2 {
  
     public static void main(String[] args) {
-        int x;
-        int x2[]=new int[2];
+        //int x;
+        //int x2[]=new int[2];
         
         //System.out.println(x2[0]);
         
         String hola[]={"ya", "casi", "nos", "vamos"};
-        for (int i = 0; i <hola.length; i++) {
-            System.out.println(hola[i]);
-        }
+        //for (int i = 0; i <hola.length; i++) {
+         //   System.out.println(hola[i]);
+        //}
         
         //CICLO FOR MEJORADO, ES RECOMENDADO USARLO 
         
         for(String y:hola){
             
-            System.out.println(y);
+           System.out.println(y);
         }
         
         

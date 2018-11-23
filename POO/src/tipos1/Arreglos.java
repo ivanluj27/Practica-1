@@ -18,11 +18,13 @@ public class Arreglos {
         a3[0]=7;
         a3[1]=2;
         a3[2]=-2;
+        
         for (int i = 0; i < a3.length; i++) {
-            System.out.println(a3[i]);
+           System.out.println(a3[i]);
         }
         
-        //System.out.println(a1[0]);
+        System.out.println(a1[0]);
+        System.out.println(a2[1]);
 
     }
 }

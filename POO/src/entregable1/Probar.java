@@ -17,11 +17,13 @@ public class Probar {
     
     public static void main(String[] args) {
         try {
-            Usuario u1=new Usuario("Juan", 25, 8000);
+            Usuario u1=new Usuario("Juan", 22, 8000);
             PersistenciaUsuario p= new PersistenciaUsuario();
-           p.guardar(u1);
+           //p.guardar(u1);
+           //p.borrar(0);
+           p.actualizar(0, u1);
             for(Usuario u:p.leer()){
-                System.out.println(u);
+                System.out.println(u1);
             }
         } catch (IOException ex) {
             Logger.getLogger(Probar.class.getName()).log(Level.SEVERE, null, ex);
