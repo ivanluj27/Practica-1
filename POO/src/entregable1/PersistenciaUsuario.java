@@ -25,7 +25,7 @@ public class PersistenciaUsuario {
 //    borrar(int id)
 //    actualizar(int id, campo a acualizar): guardar
     ArrayList<Usuario> usuarios;
-
+    
     public PersistenciaUsuario() {
         usuarios=new ArrayList<>();
     }

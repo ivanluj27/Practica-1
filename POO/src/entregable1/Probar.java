@@ -17,7 +17,7 @@ public class Probar {
     
     public static void main(String[] args) {
         try {
-            Usuario u1=new Usuario("Juan", 22, 8000);
+            Usuario u1=new Usuario("Juan", 25, 8000);
             PersistenciaUsuario p= new PersistenciaUsuario();
            //p.guardar(u1);
            //p.borrar(0);

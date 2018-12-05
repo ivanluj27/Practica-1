@@ -12,8 +12,8 @@ package tipos1;
 public class Arreglos {
     public static void main(String[] args) {
         
-        int a1[]={3,4,5};
-        int []a2={3,4};
+        //int a1[]={3,4,5};
+        //int []a2={3,4};
         int a3[]=new int[3];
         a3[0]=7;
         a3[1]=2;
@@ -23,8 +23,8 @@ public class Arreglos {
            System.out.println(a3[i]);
         }
         
-        System.out.println(a1[0]);
-        System.out.println(a2[1]);
+        //System.out.println(a1[0]);
+        //System.out.println(a2[1]);
 
     }
 }
